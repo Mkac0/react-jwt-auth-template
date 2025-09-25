@@ -37,10 +37,9 @@ const SignInForm = () => {
         <p>{message}</p>
         <form autoComplete='off' onSubmit={handleSubmit}>
             <div>
-            <label htmlFor='email'>Username:</label>
+            <label htmlFor='username'>Username:</label>
             <input
                 type='text'
-                autoComplete='off'
                 id='username'
                 value={formData.username}
                 name='username'
@@ -52,7 +51,6 @@ const SignInForm = () => {
             <label htmlFor='password'>Password:</label>
             <input
                 type='password'
-                autoComplete='off'
                 id='password'
                 value={formData.password}
                 name='password'

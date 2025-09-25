@@ -41,7 +41,7 @@ const SignUpForm = () => {
         <main>
             <h1>Sign Up</h1>
             <p>{message}</p>
-            <form onSubmit={handleSubmit}>
+            <form autoComplete='off' onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor='username'>Username:</label>
                     <input 
