@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <Routes>                    {/* Add the Routes component to wrap our individual routes*/}
+      <Routes>
         <Route path='/sign-up' element={<SignUpForm />} />
       </Routes>
     </>

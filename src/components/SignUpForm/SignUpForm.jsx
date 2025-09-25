@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { signUp } from '../../services/authService';
+import { UserContext } from '../../contexts/UserContext';   // // Import the UserContext object from the UserContext component file
 
 const SignUpForm = () => {
     const navigate = useNavigate();
+    const { setUser } = useContext(UserContext);    // Destructure the object returned by the useContext() hook to get the setUser() function
     const [message, setMessage] = useState('');
     const [formData, setFormData] = useState({
         username: '',
@@ -24,6 +26,8 @@ const SignUpForm = () => {
         try {
         const newUser = await signUp(formData);
         console.log(newUser);
+        setUser(newUser);
+        navigate('/');
          } catch (err) {
             setMessage(err.message);
         }
