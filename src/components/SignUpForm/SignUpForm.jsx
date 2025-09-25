@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { signUp } from '../../services/authService';
+
 const SignUpForm = () => {
     const navigate = useNavigate();
     const [message, setMessage] = useState('');
@@ -19,8 +21,13 @@ const SignUpForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(formData);
-    }
+        try {
+        const newUser = await signUp(formData);
+        console.log(newUser);
+         } catch (err) {
+            setMessage(err.message);
+        }
+    };
 
     const isFormInvalid = () => {
         return !(username && password && password === passwordConf);
